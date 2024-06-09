@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AniShop - Каталог</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-item {
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 15px;
+        }
+
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer; /* Изменение курсора при наведении */
+        }
+
+        .product-item h3 {
+            margin-top: auto; /* Позволяет тексту прилегать к низу блока */
+            cursor: pointer; /* Изменение курсора при наведении */
+        }
+
+        .product-item p {
+            margin: 5px 0;
+        }
+
+        .product-item .btn {
+            margin-top: 10px; /* Расстояние между кнопками */
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between; /* Распределение элементов по горизонтали */
+            align-items: center; /* Выравнивание элементов по вертикали */
+            background-color: #333; /* Цвет фона */
+            color: white; /* Цвет текста */
+            padding: 10px; /* Отступы внутри шапки */
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin-right: 10px; /* Расстояние между ссылками */
+            text-decoration: none; /* Убираем подчеркивание */
+            color: white; /* Цвет текста */
+        }
+
+        .right-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .right-buttons a {
+            margin-right: 10px; /* Расстояние между кнопками */
+            text-decoration: none; /* Убираем подчеркивание */
+            color: white; /* Цвет текста */
+            border: 1px solid white; /* Граница кнопок */
+            padding: 5px 10px; /* Отступы внутри кнопок */
+            border-radius: 5px; /* Скругление углов кнопок */
+            background-color: transparent; /* Прозрачный фон */
+            transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+        }
+
+        .right-buttons a:hover {
+            background-color: #ddd; /* Цвет фона при наведении */
+        }
+
+        .logo {
+            cursor: pointer; /* Изменение курсора при наведении */
+        }
+
+        .logo img {
+            max-height: 50px; /* Максимальная высота для логотипа */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><img src="images/icons/logo.png" alt="AniShop Logo"></a>
+            <a href="index.html">Главная</a>
+            <a href="catalog.html">Каталог</a>
+            <a href="cart.html">Корзина</a>
+            <a href="profile.html">Профиль</a>
+            <a href="contact.html">Контакты</a>
+            <a href="about.html">О нас</a>
+        </nav>
+        <div class="right-buttons">
+            <a href="login.html">Вход</a>
+            <a href="register.html">Регистрация</a>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Каталог товаров</h1>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="images/products/product1.jpg" alt="Product 1" onclick="window.location.href='product.html'">
+                <h3 onclick="window.location.href='product.html'">Брелок "Фарузан"</h3>
+                <p>600 рублей</p>
+                <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
+                <button class="btn add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="product-item">
+                <img src="images/products/product2.jpg" alt="Product 2" onclick="window.location.href='product.html'">
+                <h3 onclick="window.location.href='product.html'">Брелок "Бездомный бог"</h3>
+                <p>300 рублей</p>
+                <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
+                <button class="btn add-to-cart">Добавить в корзину</button>
+            </div>
+            <div class="product-item">
+                <img src="images/products/product3.jpg" alt="Product 3" onclick="window.location.href='product.html'">
+                <h3 onclick="window.location.href='product.html'">Брелок "Атака Титанов"</h3>
+                <p>250 рублей</p>
+                <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
+                <button class="btn add-to-cart">Добавить в корзину</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 AniShop</p>
+    </footer>
+
+    <script type="module" src="js/catalog.js"></script>
+</body>
+</html>
+                    

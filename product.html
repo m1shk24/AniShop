@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AniShop - Товар</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between; /* Распределение элементов по горизонтали */
+            align-items: center; /* Выравнивание элементов по вертикали */
+            background-color: #333; /* Цвет фона */
+            color: white; /* Цвет текста */
+            padding: 10px; /* Отступы внутри шапки */
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin-right: 10px; /* Расстояние между ссылками */
+            text-decoration: none; /* Убираем подчеркивание */
+            color: white; /* Цвет текста */
+        }
+
+        .right-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .right-buttons a {
+            margin-right: 10px; /* Расстояние между кнопками */
+            text-decoration: none; /* Убираем подчеркивание */
+            color: white; /* Цвет текста */
+            border: 1px solid white; /* Граница кнопок */
+            padding: 5px 10px; /* Отступы внутри кнопок */
+            border-radius: 5px; /* Скругление углов кнопок */
+            background-color: transparent; /* Прозрачный фон */
+            transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+        }
+
+        .right-buttons a:hover {
+            background-color: #ddd; /* Цвет фона при наведении */
+        }
+
+        .logo {
+            cursor: pointer; /* Изменение курсора при наведении */
+        }
+
+        .logo img {
+            max-height: 50px; /* Максимальная высота для логотипа */
+        }
+
+        .container {
+            text-align: center; /* Выравнивание содержимого по центру */
+        }
+
+        .product-info {
+            margin-top: 20px; /* Отступ сверху для информации о товаре */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><img src="images/icons/logo.png" alt="AniShop Logo"></a>
+            <a href="index.html">Главная</a>
+            <a href="catalog.html">Каталог</a>
+            <a href="cart.html">Корзина</a>
+            <a href="profile.html">Профиль</a>
+            <a href="contact.html">Контакты</a>
+            <a href="about.html">О нас</a>
+        </nav>
+        <div class="right-buttons">
+            <a href="login.html">Вход</a>
+            <a href="register.html">Регистрация</a>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Название товара</h1>
+        <img src="images/products/product1.jpg" alt="Product 1">
+        <div class="product-info">
+            <p>Описание товара.</p>
+            <p>Цена: $10</p>
+            <a href="#" class="btn">Добавить в корзину</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 AniShop</p>
+    </footer>
+</body>
+</html>
