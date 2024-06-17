@@ -6,44 +6,88 @@
     <title>AniShop - Каталог</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("images/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
         }
 
+        .product-section {
+            margin-bottom: 30px;
+        }
+
+        .product-section h2 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
         .product-item {
             text-align: center;
             border: 1px solid #ddd;
             padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
         }
 
         .product-item img {
             max-width: 100%;
-            height: auto;
-            cursor: pointer; /* Изменение курсора при наведении */
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
         }
 
         .product-item h3 {
-            margin-top: auto; /* Позволяет тексту прилегать к низу блока */
-            cursor: pointer; /* Изменение курсора при наведении */
+            cursor: pointer;
+            margin: 10px 0;
         }
 
         .product-item p {
-            margin: 5px 0;
+            margin: 10px 0;
+        }
+
+        .product-item .price {
+            margin-top: auto;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .product-item .btn-container {
+            margin-top: 10px;
         }
 
         .product-item .btn {
-            margin-top: 10px; /* Расстояние между кнопками */
+            margin: 5px 0;
         }
 
         header {
             display: flex;
-            justify-content: space-between; /* Распределение элементов по горизонтали */
-            align-items: center; /* Выравнивание элементов по вертикали */
-            background-color: #333; /* Цвет фона */
-            color: white; /* Цвет текста */
-            padding: 10px; /* Отступы внутри шапки */
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
         }
 
         nav {
@@ -52,9 +96,9 @@
         }
 
         nav a {
-            margin-right: 10px; /* Расстояние между ссылками */
-            text-decoration: none; /* Убираем подчеркивание */
-            color: white; /* Цвет текста */
+            margin-right: 10px;
+            text-decoration: none;
+            color: white;
         }
 
         .right-buttons {
@@ -63,26 +107,26 @@
         }
 
         .right-buttons a {
-            margin-right: 10px; /* Расстояние между кнопками */
-            text-decoration: none; /* Убираем подчеркивание */
-            color: white; /* Цвет текста */
-            border: 1px solid white; /* Граница кнопок */
-            padding: 5px 10px; /* Отступы внутри кнопок */
-            border-radius: 5px; /* Скругление углов кнопок */
-            background-color: transparent; /* Прозрачный фон */
-            transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+            margin-right: 10px;
+            text-decoration: none;
+            color: white;
+            border: 1px solid white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
         }
 
         .right-buttons a:hover {
-            background-color: #ddd; /* Цвет фона при наведении */
+            background-color: #ddd;
         }
 
         .logo {
-            cursor: pointer; /* Изменение курсора при наведении */
+            cursor: pointer;
         }
 
         .logo img {
-            max-height: 50px; /* Максимальная высота для логотипа */
+            max-height: 50px;
         }
     </style>
 </head>
@@ -103,28 +147,101 @@
         </div>
     </header>
     <div class="container">
-        <h1>Каталог товаров</h1>
-        <div class="product-grid">
-            <div class="product-item">
-                <img src="images/products/product1.jpg" alt="Product 1" onclick="window.location.href='product.html'">
-                <h3 onclick="window.location.href='product.html'">Брелок "Фарузан"</h3>
-                <p>600 рублей</p>
-                <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
-                <button class="btn add-to-cart">Добавить в корзину</button>
+        <div class="product-section">
+            <h2>Брелоки</h2>
+            <div class="product-grid">
+                <div class="product-item" data-id="1">
+                    <img src="images/products/product1.jpg" alt="Product 1" onclick="redirectToProduct(1)">
+                    <h3 onclick="redirectToProduct(1)">Брелок "Фарузан"</h3>
+                    <p class="price">600 рублей</p>
+                    <div class="btn-container">
+                        <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
+                        <button class="btn add-to-cart">Добавить в корзину</button>
+                    </div>
+                </div>
+                <div class="product-item" data-id="2">
+                    <img src="images/products/product2.jpg" alt="Product 2" onclick="redirectToProduct(2)">
+                    <h3 onclick="redirectToProduct(2)">Брелок "Ято"</h3>
+                    <p class="price">300 рублей</p>
+                    <div class="btn-container">
+                        <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
+                        <button class="btn add-to-cart">Добавить в корзину</button>
+                    </div>
+                </div>
+                <div class="product-item" data-id="3">
+                    <img src="images/products/product3.jpg" alt="Product 3" onclick="redirectToProduct(3)">
+                    <h3 onclick="redirectToProduct(3)">Брелок "Крылья свободы"</h3>
+                    <p class="price">250 рублей</p>
+                    <div class="btn-container">
+                        <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
+                        <button class="btn add-to-cart">Добавить в корзину</button>
+                    </div>
+                </div>
             </div>
-            <div class="product-item">
-                <img src="images/products/product2.jpg" alt="Product 2" onclick="window.location.href='product.html'">
-                <h3 onclick="window.location.href='product.html'">Брелок "Бездомный бог"</h3>
-                <p>300 рублей</p>
-                <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
-                <button class="btn add-to-cart">Добавить в корзину</button>
+        </div>
+        <div class="product-section">
+            <h2>Акриловые фигурки</h2>
+            <div class="product-grid">
+                <div class="product-item" data-id="4">
+                    <img src="images/products/product4.jpg" alt="Product 4" onclick="redirectToProduct(4)">
+                    <h3 onclick="redirectToProduct(4)">Акриловая фигурка "Сейлор Мун"</h3>
+                    <p class="price">850 рублей</p>
+                    <div class="btn-container">
+                        <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
+                        <button class="btn add-to-cart">Добавить в корзину</button>
+                    </div>
+                </div>
+                <div class="product-item" data-id="5">
+                    <img src="images/products/product5.jpg" alt="Product 5" onclick="redirectToProduct(5)">
+                    <h3 onclick="redirectToProduct(5)">Акриловая фигурка "Макима"</h3>
+                    <p class="price">850 рублей</p>
+                    <div class="btn-container">
+                        <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
+                        <button class="btn add-to-cart">Добавить в корзину</button>
+                    </div>
+                </div>
+                <div class="product-item" data-id="6">
+                    <img src="images/products/product6.jpg" alt="Product 6" onclick="redirectToProduct(6)">
+                    <h3 onclick="redirectToProduct(6)">Акриловая фигурка "Пауэр"</h3>
+                    <p class="price">850 рублей</p>
+                    <div class="btn-container">
+                        <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
+                        <button class="btn add-to-cart">Добавить в корзину</button>
+                    </div>
+                </div>
             </div>
-            <div class="product-item">
-                <img src="images/products/product3.jpg" alt="Product 3" onclick="window.location.href='product.html'">
-                <h3 onclick="window.location.href='product.html'">Брелок "Атака Титанов"</h3>
-                <p>250 рублей</p>
-                <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
-                <button class="btn add-to-cart">Добавить в корзину</button>
+        </div>
+        <div class="product-section">
+            <h2>Мягкие игрушки</h2>
+            <div class="product-grid">
+                <div class="product-item" data-id="7">
+                    <img src="images/products/product7.jpg" alt="Product 7" onclick="redirectToProduct(7)">
+                    <h3 onclick="redirectToProduct(7)">Мягкая игрушка "Yuji Itadori"</h3>
+                    <p class="price">950 рублей</p>
+                    <div class="btn-container">
+                        <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
+                        <button class="btn add-to-cart">Добавить в корзину</button>
+                    </div>
+                </div>
+                <div class="product-item" data-id="8">
+                    <img src="images/products/product8.jpg" alt="Product 8" onclick="redirectToProduct(8)">
+                    <h3 onclick="redirectToProduct(8)">Мягкая игрушка "Такемичи Ханагаки"</h3>
+                    <p class="price">950 рублей</p>
+                    <div class="btn-container">
+                        <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
+                        <button class="btn add-to-cart">Добавить в корзину</button>
+                    </div>
+                </div>
+                <div class="product-item" data-id="9">
+                    <img src="images/products/product9.jpg" alt="Product 9" onclick="redirectToProduct(9)">
+                    <h3 onclick="redirectToProduct(9)">Мягкая игрушка "Кэмма Кодзумэ"</h3>
+                    <p class="price">950 рублей</p>
+                    <div class="btn-container">
+                        <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
+                        <button class="btn add-to-cart">Добавить в корзину</button>
+                    </div>
+                </div>
+                <!-- Добавьте здесь другие товары по аналогии, если нужно -->
             </div>
         </div>
     </div>
@@ -133,6 +250,10 @@
     </footer>
 
     <script type="module" src="js/catalog.js"></script>
+    <script>
+        function redirectToProduct(id) {
+            window.location.href = 'product.html?id=' + id;
+        }
+    </script>
 </body>
 </html>
-                    

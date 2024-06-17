@@ -8,11 +8,11 @@
     <style>
         header {
             display: flex;
-            justify-content: space-between; /* Распределение элементов по горизонтали */
-            align-items: center; /* Выравнивание элементов по вертикали */
-            background-color: #333; /* Цвет фона */
-            color: white; /* Цвет текста */
-            padding: 10px; /* Отступы внутри шапки */
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
         }
 
         nav {
@@ -21,9 +21,9 @@
         }
 
         nav a {
-            margin-right: 10px; /* Расстояние между ссылками */
-            text-decoration: none; /* Убираем подчеркивание */
-            color: white; /* Цвет текста */
+            margin-right: 10px;
+            text-decoration: none;
+            color: white;
         }
 
         .right-buttons {
@@ -32,34 +32,61 @@
         }
 
         .right-buttons a {
-            margin-right: 10px; /* Расстояние между кнопками */
-            text-decoration: none; /* Убираем подчеркивание */
-            color: white; /* Цвет текста */
-            border: 1px solid white; /* Граница кнопок */
-            padding: 5px 10px; /* Отступы внутри кнопок */
-            border-radius: 5px; /* Скругление углов кнопок */
-            background-color: transparent; /* Прозрачный фон */
-            transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+            margin-right: 10px;
+            text-decoration: none;
+            color: white;
+            border: 1px solid white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
         }
 
         .right-buttons a:hover {
-            background-color: #ddd; /* Цвет фона при наведении */
+            background-color: #ddd;
         }
 
         .logo {
-            cursor: pointer; /* Изменение курсора при наведении */
+            cursor: pointer;
         }
 
         .logo img {
-            max-height: 50px; /* Максимальная высота для логотипа */
+            max-height: 50px;
         }
 
         .container {
-            text-align: center; /* Выравнивание содержимого по центру */
+            text-align: center;
         }
 
         .product-info {
-            margin-top: 20px; /* Отступ сверху для информации о товаре */
+            margin-top: 20px;
+        }
+
+        /* Добавлены стили для изображения товара */
+        #product-image {
+            width: 150px;  /* Ширина изображения */
+            height: 150px; /* Высота изображения */
+            object-fit: cover; /* Сохранение пропорций изображения */
+            margin: 0 auto; /* Центрирование изображения */
+        }
+
+        .btn-container {
+            margin-top: 20px; /* Пространство над кнопками */
+        }
+
+        .btn {
+            margin: 5px; /* Пространство между кнопками */
+            padding: 10px 20px;
+            color: white;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #555;
         }
     </style>
 </head>
@@ -80,16 +107,142 @@
         </div>
     </header>
     <div class="container">
-        <h1>Название товара</h1>
-        <img src="images/products/product1.jpg" alt="Product 1">
+        <h1 id="product-name">Название товара</h1>
+        <img id="product-image" src="images/products/product1.jpg" alt="Product 1">
         <div class="product-info">
-            <p>Описание товара.</p>
-            <p>Цена: $10</p>
-            <a href="#" class="btn">Добавить в корзину</a>
+            <p id="product-description">Описание товара.</p>
+            <div class="btn-container">
+                <button onclick="window.location.href='checkout.html'" class="btn buy">Купить</button>
+                <button class="btn add-to-cart">Добавить в корзину</button>
+            </div>
         </div>
     </div>
     <footer>
         <p>&copy; 2024 AniShop</p>
     </footer>
+
+    <script>
+        // Получаем параметры URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        // Пример данных о товарах
+        const products = {
+            // Другие товары...
+            7: {
+                name: 'Мягкая игрушка "Yuji Itadori"',
+                category: 'Мягкие игрушки',
+                sku: 'Myagkie-igrushki-anime-59069',
+                weight: '100 гр.',
+                source: 'Jujutsu Kaisen',
+                material: 'Плюш',
+                size: '20 см',
+                price: '950 рублей'
+            },
+            8: {
+                name: 'Мягкая игрушка "Takemichi Hanagaki"',
+                category: 'Мягкие игрушки',
+                sku: 'Myagkie-igrushki-anime-58939',
+                weight: '100 гр.',
+                source: 'Tokyo Revengers',
+                material: 'Плюш',
+                size: '20 см',
+                price: '950 рублей'
+            },
+            9: {
+                name: 'Мягкая игрушка "Kenma Kozume"',
+                category: 'Мягкие игрушки',
+                sku: 'Myagkie-igrushki-anime-58929',
+                weight: '150 гр.',
+                source: 'Haikyuu!!',
+                material: 'Плюш',
+                size: '20 см',
+                price: '950 рублей'
+            },
+            1: {
+                name: 'Брелок "Фарузан"',
+                category: 'Брелоки',
+                sku: 'Pendants-63500',
+                weight: '30 гр.',
+                source: 'Genshin Impact',
+                material: 'Акрил',
+                size: '6 х 5,9 см',
+                price: '600 рублей',
+                description: 'Брелок "Фарузан" из игры Genshin Impact. Выполнен из акрила, размеры 6 х 5,9 см.'
+            },
+            2: {
+                name: 'Брелок "Ято"',
+                category: 'Брелоки',
+                sku: 'Pendants-37',
+                weight: '5 гр.',
+                source: 'Noragami',
+                material: 'Глазурь и Сталь',
+                size: '8,5 х 4 см',
+                price: '300 рублей',
+                description: 'Брелок "Ято" из аниме Noragami. Выполнен из глазури и стали, размеры 8,5 х 4 см.'
+            },
+            3: {
+                name: 'Брелок "Крылья свободы"',
+                category: 'Брелоки',
+                sku: 'Pendants-8',
+                weight: '5 гр.',
+                source: 'Attack on Titan',
+                material: 'Глазурь и Сталь',
+                size: '8,5 х 4 см',
+                price: '250 рублей'
+            },
+            4: {
+                name: 'Акриловая фигурка "Sailor Moon"',
+                category: 'Акриловые фигурки',
+                sku: 'acrylic-figures-60912',
+                weight: '130 гр.',
+                source: 'Sailor Moon',
+                material: 'Акрил',
+                size: '22 см',
+                release_date: 'Май 2023',
+                price: '850 рублей'
+            },
+            5: {
+                name: 'Акриловая фигурка "Makima"',
+                category: 'Акриловые фигурки',
+                sku: 'acrylic-figures-60492',
+                weight: '130 гр.',
+                source: 'Chainsaw Man',
+                material: 'Акрил',
+                size: '19 см',
+                release_date: 'Апрель 2023',
+                price: '850 рублей'
+            },
+            6: {
+                name: 'Акриловая фигурка "Power"',
+                category: 'Акриловые фигурки',
+                sku: 'acrylic-figures-60491',
+                weight: '130 гр.',
+                source: 'Chainsaw Man',
+                material: 'Акрил',
+                size: '19 см',
+                release_date: 'Апрель 2023',
+                price: '850 рублей'
+            }
+        };
+
+        // Устанавливаем данные на странице
+        if (products[productId]) {
+            const product = products[productId];
+            document.getElementById('product-name').innerText = product.name;
+            document.getElementById('product-image').src = `images/products/product${productId}.jpg`; // Предполагается, что у вас есть изображения с именами product7.jpg, product8.jpg, product9.jpg и т.д.
+            document.getElementById('product-description').innerHTML = `
+                <p><strong>Категория:</strong> ${product.category}</p>
+                <p><strong>Артикул:</strong> ${product.sku}</p>
+                <p><strong>Вес:</strong> ${product.weight}</p>
+                <p><strong>Источник:</strong> ${product.source}</p>
+                <p><strong>Материал:</strong> ${product.material}</p>
+                <p><strong>Размеры:</strong> ${product.size}</p>
+                <p><strong>Цена:</strong> ${product.price}</p>
+            `;
+        } else {
+            document.querySelector('.container').innerHTML = '<p>Товар не найден</p>';
+        }
+    </script>
 </body>
 </html>
